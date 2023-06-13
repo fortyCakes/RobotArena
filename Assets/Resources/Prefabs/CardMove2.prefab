@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5263870750411179259, guid: ea3ec3c2a7851d243ae9c758c0634653, type: 3}
+      propertyPath: CardType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8092195594787432448, guid: ea3ec3c2a7851d243ae9c758c0634653, type: 3}
       propertyPath: m_Name
       value: CardMove2

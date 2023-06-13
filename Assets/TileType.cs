@@ -10,7 +10,7 @@
     Conveyor2Right,
     Pit,
     Repair,
-    RotateCW,
-    RotateACW,
+    RotateClockwise,
+    RotateAnticlockwise,
     Upgrade
 }

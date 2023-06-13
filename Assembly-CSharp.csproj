@@ -60,11 +60,20 @@
     <Compile Include="Assets\CardDisplayZone.cs" />
     <Compile Include="Assets\CardType.cs" />
     <Compile Include="Assets\CardZone.cs" />
+    <Compile Include="Assets\CardSlot.cs" />
+    <Compile Include="Assets\SlottedCardZone.cs" />
+    <Compile Include="Assets\ProgrammableRobot.cs" />
     <Compile Include="Assets\ArenaMap.cs" />
+    <Compile Include="Assets\VectorHelpers.cs" />
     <Compile Include="Assets\ArenaController.cs" />
+    <Compile Include="Assets\CardSlotDisplayer.cs" />
     <Compile Include="Assets\CardsManager.cs" />
     <Compile Include="Assets\TileType.cs" />
+    <Compile Include="Assets\ArenaObject.cs" />
+    <Compile Include="Assets\ProgramCardZone.cs" />
     <Compile Include="Assets\CardBase.cs" />
+    <Compile Include="Assets\PlayerHand.cs" />
+    <Compile Include="Assets\MoveResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

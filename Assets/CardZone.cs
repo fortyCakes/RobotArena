@@ -7,7 +7,14 @@ using UnityEngine;
 
 public class CardZone : MonoBehaviour
 {
-    public List<GameObject> cards;
+    private List<GameObject> cards;
+
+    public virtual bool CanAdd()
+    {
+        return true;
+    }
+
+    public CardZone ReshuffleWhenEmpty;
     public Transform displayParent;
 
     public CardZone()
@@ -15,38 +22,51 @@ public class CardZone : MonoBehaviour
         this.cards = new List<GameObject>();
     }
 
+    public virtual List<GameObject> AllCards => cards;
 
-    public virtual void Add(GameObject card)
+    public virtual bool Add(GameObject card)
     {
         cards.Add(card);
         card.GetComponent<CardBase>().Zone = this;
+        return true;
     }
 
-    public virtual void Remove(GameObject card)
+    public virtual bool Remove(GameObject card)
     {
         if (cards.Contains(card))
         {
             cards.Remove(card);
+            return true;
         }
+        return false;
     }
 
-    public void DrawFrom(CardZone zone, int cards = 1)
+    public virtual void OnCardClick(GameObject gameObject)
+    {
+        // implement zone-specific behaviours
+    }
+
+    public virtual void DrawFrom(CardZone zone, int cards = 1)
     {
         for (int i = 0; i < cards; i++)
         {
-            if (zone.cards.Any())
+            if (zone.AllCards.Any())
             {
                 zone.First().GetComponent<CardBase>().MoveTo(this);
+            } else if (zone.ReshuffleWhenEmpty != null && zone.ReshuffleWhenEmpty.AllCards.Any())
+            {
+                zone.ReshuffleWhenEmpty.Shuffle();
+                DrawFrom(zone.ReshuffleWhenEmpty, zone.ReshuffleWhenEmpty.AllCards.Count());
             }
         }
     }
 
-    public GameObject First()
+    public virtual GameObject First()
     {
         return cards.First();
     }
 
-    public void Shuffle()
+    public virtual void Shuffle()
     {
         System.Random _random = new System.Random();
 
@@ -61,6 +81,5 @@ public class CardZone : MonoBehaviour
             cards[i] = temp;
         }
     }
-
 }
 

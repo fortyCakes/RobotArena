@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8092195594787432448, guid: ea3ec3c2a7851d243ae9c758c0634653, type: 3}
       propertyPath: m_Name
-      value: CardBase
+      value: CardMove1
       objectReference: {fileID: 0}
     - target: {fileID: 8092195594787432451, guid: ea3ec3c2a7851d243ae9c758c0634653, type: 3}
       propertyPath: m_Pivot.x
@@ -77,11 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8092195594787432451, guid: ea3ec3c2a7851d243ae9c758c0634653, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1083
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8092195594787432451, guid: ea3ec3c2a7851d243ae9c758c0634653, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -554.88
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8092195594787432451, guid: ea3ec3c2a7851d243ae9c758c0634653, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

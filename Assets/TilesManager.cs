@@ -86,9 +86,9 @@ public sealed class TilesManager
                 return Pit;
             case TileType.Repair:
                 return Repair;
-            case TileType.RotateACW:
+            case TileType.RotateAnticlockwise:
                 return RotateACW;
-            case TileType.RotateCW:
+            case TileType.RotateClockwise:
                 return RotateCW;
             case TileType.Upgrade:
                 return Upgrade;

@@ -15,7 +15,7 @@ public class CardDisplayZone : MonoBehaviour
     void Update()
     {
         var xOffset = margin - GetComponent<RectTransform>().rect.width/2;
-        foreach(var card in CardZone.cards)
+        foreach(var card in CardZone.AllCards)
         {
             int width = (int)card.GetComponent<RectTransform>().rect.width;
             int height = (int)card.GetComponent<RectTransform>().rect.height;

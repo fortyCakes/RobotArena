@@ -40,7 +40,36 @@ public sealed class CardsManager
             }
         }
     }
-    
+
+    public static CardZone GenerateDeck()
+    {
+        var gameObject = new GameObject("Deck", typeof(CardZone));
+
+        var newDeck = gameObject.GetComponent<CardZone>();
+
+        AddCardsToDeck(newDeck, CardType.UTurn, 6, 0);
+        AddCardsToDeck(newDeck, CardType.TurnLeft, 18, 60, 20);
+        AddCardsToDeck(newDeck, CardType.TurnRight, 18, 70, 20);
+        AddCardsToDeck(newDeck, CardType.BackUp, 6, 420);
+        AddCardsToDeck(newDeck, CardType.Move1, 18, 480);
+        AddCardsToDeck(newDeck, CardType.Move2, 12, 660);
+        AddCardsToDeck(newDeck, CardType.Move3, 6, 800);
+
+        return newDeck;
+    }
+
+    private static void AddCardsToDeck(CardZone newDeck, CardType cardType, int copies, int priorityStart, int priorityStep = 10)
+    {
+        int priority = priorityStart;
+        for (int i = 1; i < copies; i++)
+        {
+            var card = CreateCardOfType(cardType);
+            card.GetComponent<CardBase>().Priority = priority;
+            priority += priorityStep;
+            newDeck.Add(card);
+        }
+    }
+
     public static GameObject CreateCardOfType(CardType cardType)
     {
         GameObject cardPrefab;
