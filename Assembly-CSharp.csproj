@@ -74,6 +74,7 @@
     <Compile Include="Assets\CardBase.cs" />
     <Compile Include="Assets\PlayerHand.cs" />
     <Compile Include="Assets\MoveResult.cs" />
+    <Compile Include="Assets\ArchiveMarker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

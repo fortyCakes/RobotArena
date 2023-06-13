@@ -856,6 +856,7 @@ MonoBehaviour:
   ArenaPositionOffset: {x: 0, y: 0}
   FacingVector: {x: -1, y: 0}
   Program: {fileID: 1279700870}
+  ArchiveMarker: {fileID: 0}
   IsAlive: 1
 --- !u!1 &717985157 stripped
 GameObject:

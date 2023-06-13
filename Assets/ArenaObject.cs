@@ -16,7 +16,7 @@ public class ArenaObject : MonoBehaviour
 
     private Tilemap Tilemap;
     public Vector2 FacingVector;
-    private ArenaController arena;
+    protected ArenaController arena;
 
     public virtual void Start()
     {
@@ -181,6 +181,12 @@ public class ArenaObject : MonoBehaviour
             time += Time.deltaTime;
         }
         FacingVector = endVector;
+        yield return null;
+    }
+
+    public virtual IEnumerator FallInPit()
+    {
+        GameObject.Destroy(this);
         yield return null;
     }
 

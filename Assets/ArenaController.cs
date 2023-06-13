@@ -28,7 +28,7 @@ public class ArenaController : MonoBehaviour
     private Grid grid;
     public ArenaMap arenaMap;
     CardZone deck;
-    CardZone discard;
+    public CardZone discard;
     public CardZone playerHand;
     public List<ProgrammableRobot> RegisteredBots;
     public List<ArenaObject> RegisteredObjects;
@@ -203,7 +203,13 @@ public class ArenaController : MonoBehaviour
             }
         }
 
-        // TODO CHECK IF IN PIT
+        foreach (var arenaObject in RegisteredObjects)
+        {
+            if (GetTileType(arenaObject) == TileType.Pit)
+            {
+                yield return arenaObject.FallInPit();
+            }
+        }
 
         yield return null;
     }
@@ -261,7 +267,28 @@ public class ArenaController : MonoBehaviour
     private IEnumerator TouchObjectives()
     {
         Console.WriteLine("Touch objectives");
-        //throw new NotImplementedException();
+        foreach(var bot in RegisteredBots)
+        {
+            var tileType = GetTileType(bot);
+            if (tileType == TileType.Repair || tileType == TileType.Upgrade)
+            {
+                if (bot.ArchiveMarker.ArenaPosition != bot.ArenaPosition)
+                {
+                    var duration = 1f;
+                    var time = 0f;
+                    var initialPosition = bot.ArchiveMarker.ArenaPosition;
+                    var endPosition = bot.ArenaPosition;
+                    while (time < duration)
+                    {
+                        bot.ArchiveMarker.ArenaPosition = new Vector2(Mathf.Lerp(initialPosition.x, endPosition.x, time / duration), Mathf.Lerp(initialPosition.y, endPosition.y, time / duration)).AsIntVector();
+                        yield return null;
+                        time += Time.deltaTime;
+                    }
+                    bot.ArchiveMarker.ArenaPosition = bot.ArenaPosition;
+                }
+
+            }
+        }
         yield return null;
     }
 
